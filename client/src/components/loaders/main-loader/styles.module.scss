@@ -1,0 +1,71 @@
+@import '../../../assets/variables/colors.scss';
+
+.content {
+    padding: 24px 16px;
+    height: calc(100% - 60px);
+    width: 100%;
+
+    .cardLoad {
+        width: 100%;
+        height: 225px;
+        background-color: rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 0px 16px rgba(139, 164, 187, 0.12);
+        border-radius: 16px;
+        animation: loadAnim 3s infinite ease;
+    }
+
+    .currencyTitle {
+        width: 160px;
+        height: 25px;
+        background-color: rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 0px 16px rgba(139, 164, 187, 0.12);
+        border-radius: 1px;
+        margin-top: 40px;
+        animation: loadAnim 3s infinite ease;
+    }
+
+    .currencyLoad {
+        display: flex;
+        margin-top: 28px;
+        width: 100%;
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+
+            li {
+                height: 100px;
+                width: 100px;
+                background-color: rgba(0, 0, 0, 0.1);
+                box-shadow: 0px 8px 16px rgba(139, 164, 187, 0.12);
+                border-radius: 16px;
+                animation: loadAnim 3s infinite ease;
+            }
+        }
+    }
+
+    .historyLoad {
+        margin-top: 50px;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.1);
+        height: 264px;
+        box-shadow: 0px 0px 16px rgba(139, 164, 187, 0.12);
+        border-radius: 16px;
+        animation: loadAnim 3s infinite ease;
+    }
+}
+
+@keyframes loadAnim {
+    from {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+}

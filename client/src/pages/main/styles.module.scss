@@ -1,0 +1,25 @@
+@import '../../assets/variables/colors.scss';
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+
+    .content {
+        padding: 24px 16px;
+        height: calc(100% - 60px);
+        width: 100%;
+
+        .history {
+            margin-top: 50px;
+        }
+    }
+
+    h2 {
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: 0.019em;
+        color: $black;
+        font-weight: 500;
+        margin-top: 40px;
+    }
+}
