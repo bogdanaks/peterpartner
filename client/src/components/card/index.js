@@ -1,26 +1,26 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import mastercardIcon from '../../assets/images/cards-icons/master-card.svg'
-import visaIcon from '../../assets/images/cards-icons/visa.svg'
-import unionpayIcon from '../../assets/images/cards-icons/unionpay.svg'
+import { setActiveCard } from '../../redux/actions/cardAction'
+
+import { icons } from '../../utils/icons'
 import userIcon from '../../assets/images/user.svg'
 
 import styles from './styles.module.scss'
 
-const icons = {
-    mastercard: mastercardIcon,
-    visa: visaIcon,
-    unionpay: unionpayIcon,
-}
-
 export const Card = ({ card }) => {
-    console.log(card)
+    const dispatch = useDispatch()
+
+    const handleCardClick = () => {
+        dispatch(setActiveCard(card))
+    }
+
     return (
-        <Link to="/mycards">
+        <Link to="/mycards" onClick={handleCardClick}>
             <div className={styles.wrapper}>
                 <div className={styles.row}>
-                    <img src={icons[card.type]} alt="Master Card Icon" />
+                    <img src={icons[card.type]} alt={card.type} />
                     <span className={styles.cardNumber}>{card.card_number}</span>
                 </div>
                 <div className={styles.row}>
