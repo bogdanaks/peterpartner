@@ -36,10 +36,9 @@ export const Card = ({ card }) => {
                     </div>
                 </div>
                 <div className={styles.row}>
-                    <span className={styles.money}>{`${currentCurrency.symbol}${getRate(
-                        card.balance,
-                        currentCurrency.name,
-                    )}`}</span>
+                    <span className={styles.money}>{`${currentCurrency.symbol}${
+                        getRate(card.balance, currentCurrency.name) || 0
+                    }`}</span>
                     <div className={styles.balanceBlock}>
                         <span>Your balance</span>
                         <span>${Number(card.balance).toLocaleString()}</span>
