@@ -1,8 +1,10 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import { setActiveCard } from '../../redux/actions/cardAction'
+
+import { useGetRate } from '../../hooks/useGetRate'
 
 import { icons } from '../../utils/icons'
 import userIcon from '../../assets/images/user.svg'
@@ -11,6 +13,8 @@ import styles from './styles.module.scss'
 
 export const Card = ({ card }) => {
     const dispatch = useDispatch()
+    const currentCurrency = useSelector((state) => state.app.currentCurrency)
+    const [getRate] = useGetRate()
 
     const handleCardClick = () => {
         dispatch(setActiveCard(card))
@@ -32,10 +36,13 @@ export const Card = ({ card }) => {
                     </div>
                 </div>
                 <div className={styles.row}>
-                    <span className={styles.money}>£2 125,12</span>
+                    <span className={styles.money}>{`${currentCurrency.symbol}${getRate(
+                        card.balance,
+                        currentCurrency.name,
+                    )}`}</span>
                     <div className={styles.balanceBlock}>
                         <span>Your balance</span>
-                        <span>${card.balance}</span>
+                        <span>${Number(card.balance).toLocaleString()}</span>
                     </div>
                 </div>
             </div>
