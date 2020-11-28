@@ -11,6 +11,7 @@ app.use(express.json())
 
 //routes
 app.use('/api/card', require('./routes/api/card.routes'))
+app.use('/api/rate', require('./routes/api/rate.routes'))
 
 //start server
 async function start() {
