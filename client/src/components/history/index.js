@@ -34,11 +34,11 @@ export const History = ({ card }) => {
                                                 ? getRate(
                                                       Number(item.amount.split('-')[1]),
                                                       currentCurrency.name,
-                                                  )
+                                                  ) || 0
                                                 : getRate(
                                                       Number(item.amount.split('+')[1]),
                                                       currentCurrency.name,
-                                                  )}
+                                                  ) || 0}
                                         </span>
                                     </div>
                                     <span className={styles.current}>
