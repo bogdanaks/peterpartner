@@ -1,6 +1,8 @@
 import { FETCH_CARDS, SET_CARD } from './types'
 import api from '../../utils/api'
 
+import { showError } from './appAction'
+
 import { store } from '../store'
 
 export const fetchCards = (limit) => {
@@ -14,7 +16,11 @@ export const fetchCards = (limit) => {
                 payload: Object.keys(activeCard).length !== 0 ? activeCard : res.data[0],
             })
         } catch (error) {
-            console.error(error)
+            if (error.response.status !== 404) {
+                dispatch(showError(error.response.data.message))
+            } else {
+                dispatch(showError('Страница не найдена!'))
+            }
         }
     }
 }
