@@ -6,6 +6,9 @@ import { fetchCards } from '../../redux/actions/cardAction'
 import { Header } from '../../components/ui/header'
 import { MiniCard } from '../../components/mini-card'
 import { MiniLoader } from '../../components/loaders/mini-loader'
+import { Error } from '../../components/error'
+
+import styles from './styles.module.scss'
 
 export const MyCards = () => {
     const dispatch = useDispatch()
@@ -22,7 +25,7 @@ export const MyCards = () => {
     }
 
     return (
-        <>
+        <div className={styles.wrapper}>
             <Header title="Мои карты" backBtn={true} />
             {cards.length === 0 ? (
                 <MiniLoader />
@@ -37,6 +40,7 @@ export const MyCards = () => {
                     ))}
                 </ul>
             )}
-        </>
+            <Error />
+        </div>
     )
 }
