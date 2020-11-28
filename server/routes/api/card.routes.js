@@ -18,14 +18,14 @@ router.get('/', async (req, res) => {
         if (limit) {
             users.slice(0, Number(limit)).map((el) => {
                 el.transaction_history.map(async (his) => {
-                    his.icon_url = await getBase64(his.icon_url)
+                    his.icon_url = await getBase64(his.icon_url, res)
                 })
                 arr.push(el)
             })
         } else {
             users.map((el) => {
                 el.transaction_history.map(async (his) => {
-                    his.icon_url = await getBase64(his.icon_url)
+                    his.icon_url = await getBase64(his.icon_url, res)
                 })
                 arr.push(el)
             })
