@@ -1,15 +1,16 @@
-import { SHOW_ALERT, HIDE_ALERT } from '../actions/types'
+import { SET_CURRENCY } from '../actions/types'
 
 const initialState = {
-    alert: false,
+    currentCurrency: {
+        symbol: '£',
+        name: 'GBP',
+    },
 }
 
 export const appReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SHOW_ALERT:
-            return { ...state, alert: true }
-        case HIDE_ALERT:
-            return { ...state, alert: false }
+        case SET_CURRENCY:
+            return { ...state, currentCurrency: action.payload }
         default:
             return state
     }
