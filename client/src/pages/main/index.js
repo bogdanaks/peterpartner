@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { MainLoader } from '../../components/loaders/main-loader'
+import { Error } from '../../components/error'
 import { Header } from '../../components/ui/header'
 import { Card } from '../../components/card'
 import { History } from '../../components/history/index.js'
@@ -22,19 +23,22 @@ export const Main = () => {
 
     return (
         <div className={styles.wrapper}>
-            <Header title="Главная" />
-            {!Object.keys(activeCard).length ? (
-                <MainLoader />
-            ) : (
-                <div className={styles.content}>
-                    <Card card={activeCard} />
-                    <h2>Change currency</h2>
-                    <Currency />
-                    <div className={styles.history}>
-                        <History card={activeCard} />
+            <>
+                <Header title="Главная" />
+                {!Object.keys(activeCard).length ? (
+                    <MainLoader />
+                ) : (
+                    <div className={styles.content}>
+                        <Card card={activeCard} />
+                        <h2>Change currency</h2>
+                        <Currency />
+                        <div className={styles.history}>
+                            <History card={activeCard} />
+                        </div>
                     </div>
-                </div>
-            )}
+                )}
+                <Error />
+            </>
         </div>
     )
 }
